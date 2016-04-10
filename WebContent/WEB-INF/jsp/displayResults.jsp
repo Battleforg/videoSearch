@@ -46,9 +46,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         </nav>
 
         <div class="container">
-            <div class="row" style="margin:50px 0;">
+            <div class="row" style="padding-left: 6%;padding-top: 8%;padding-bottom: 5%;">
                 <div class="col-sm-12">
-                    <img width="100" src="<c:url value="/sampleImg/" />${picture.url}" alt="results">
+                    <img width="100" src="<c:url value="" />${picture.url}" alt="results">
                 </div>
             </div>
             <div class="row">

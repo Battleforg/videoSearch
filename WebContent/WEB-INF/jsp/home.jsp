@@ -76,13 +76,14 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
             </div>
             <div id="uploadImg" class="row" style="display: none;">
                 <div class="col-sm-5 col-sm-offset-4">
-                    <form>
+                    <form:form commandName="uploadPicture" action="pictureSave" method="post" enctype="multipart/form-data">
                         <div class="for-group">
-                            <label for="uploadFile" class="sr-only">upload image</label>
-                            <input type="file" id="uploadFile" class="form-control">
-                            <input id="uploadBtn" type="button" value="Upload">
+                            <label for="uploadFile">upload image</label>
+                            <input type="file" id="uploadFile" class="form-control" name="imageFile">
                         </div>
-                    </form>
+                        <button id="reset" type="reset" class="btn btn-default">Reset</button>
+                        <button id="submit" type="submit" class="btn btn-default">Upload</button>
+                    </form:form>
                 </div>
             </div>
             <div id="useSamepleImg" class="row" style="display: none;">
@@ -90,8 +91,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                     <div class="row" id="samplePictureArea">
                         <c:forEach items="${pictures}" var="picture">
                             <div class="col-sm-4 samplePicture" id="${picture.id}">
-                                <a href="displayResults/${picture.name}" class="thumbnail">
-                                    <img width="100" src="<c:url value="/sampleImg/" />${picture.url}" alt="sample">
+                                <a href="sampleImgResults/${picture.name}" class="thumbnail">
+                                    <img width="100" src="<c:url value="" />${picture.url}" alt="sample">
                                 </a>
                             </div>
                         </c:forEach>

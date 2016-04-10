@@ -10,8 +10,9 @@
         http://www.springframework.org/schema/context
         http://www.springframework.org/schema/context/spring-context.xsd">
 
-	<context:component-scan base-package="controller" />
-    <context:component-scan base-package="formatter" />
+	<context:component-scan base-package="videoSearch.controller" />
+	<context:component-scan base-package="videoSearch.service" />
+    <context:component-scan base-package="videoSearch.formatter" />
 
 	<mvc:annotation-driven conversion-service="conversionService" />
 
@@ -40,7 +41,7 @@
 
         <property name="formatters">
             <set>
-                <bean class="formatter.DateFormatter">
+                <bean class="videoSearch.formatter.DateFormatter">
                     <constructor-arg type="java.lang.String" value="MM-dd-yyyy" />
                 </bean>
             </set>

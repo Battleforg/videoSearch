@@ -2,8 +2,7 @@ package videoSearch.domain;
 
 import java.io.Serializable;
 
-public class Picture implements Serializable {
-
+public class Picture implements Serializable {	
 	/**
 	 * 
 	 */
@@ -35,4 +34,5 @@ public class Picture implements Serializable {
 	public void setId(long id) {
 		this.id = id;
 	}
+
 }

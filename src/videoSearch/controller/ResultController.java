@@ -60,11 +60,28 @@ public class ResultController {
 		return resultsList;
 	}
 	
-	@RequestMapping(value = "/displayResults/{id}")
-	public String displayResults(@PathVariable Long id, Model model) {
+	@RequestMapping(value = "/sampleImgResults/{id}")
+	public String displaySampleImgResults(@PathVariable Long id, Model model) {
+		// get sample image
 		Picture picture = pictureService.getSamplePicture(id);
 		model.addAttribute("picture", picture);
+		
+		// do searching
 		List<Video> videos = doSearching("imageUrl");
+		
+		model.addAttribute("videos", videos);
+		return "displayResults";
+	}
+	
+	@RequestMapping(value = "/uploadImgResults/{id}")
+	public String displayUploadImgResults(@PathVariable Long id, Model model) {
+		// get upload image
+		Picture picture = pictureService.get(id);
+		model.addAttribute("picture", picture);
+		
+		// do searching
+		List<Video> videos = doSearching("imageUrl");
+		
 		model.addAttribute("videos", videos);
 		return "displayResults";
 	}

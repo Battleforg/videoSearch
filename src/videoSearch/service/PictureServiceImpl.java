@@ -13,8 +13,6 @@ public class PictureServiceImpl implements PictureService {
 	private Map<Long, Picture> pictures = new HashMap<Long, Picture>();
 	private AtomicLong generator = new AtomicLong();
 	
-	public static final String JPG_STRING = ".jpg";
-	
 	public PictureServiceImpl() {
 		Picture picture = new Picture();
 		picture.setName("sample");
@@ -39,7 +37,7 @@ public class PictureServiceImpl implements PictureService {
 		Picture resultPicture = new Picture();
 		resultPicture.setId(id);
 		resultPicture.setName(Long.toString(id));
-		resultPicture.setUrl(resultPicture.getName() + JPG_STRING);
+		resultPicture.setUrl("sampleImg/" + resultPicture.getName() + JPG_STRING);
 		return resultPicture;
 	}
 
