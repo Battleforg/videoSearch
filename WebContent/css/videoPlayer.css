@@ -1,0 +1,11 @@
+.shots {
+	background-color:#076F07;
+}
+
+.shots:hover {
+	background-color:#5cb85c;
+}
+
+.normal {
+	background-color: #000000;
+}

@@ -1,6 +1,7 @@
 package videoSearch.domain;
 
 import java.io.Serializable;
+import java.util.List;
 
 public class Video implements Serializable {
 
@@ -12,6 +13,9 @@ public class Video implements Serializable {
 	private String url;
 	private String thumbnailUrl;
 	private Long id;
+	private int duration;
+	private List<Integer> hits;
+	private List<ShotPair> shots;
 
 	/**
 	 * @return the name
@@ -67,6 +71,48 @@ public class Video implements Serializable {
 	 */
 	public void setId(Long id) {
 		this.id = id;
+	}
+
+	/**
+	 * @return the duration
+	 */
+	public int getDuration() {
+		return duration;
+	}
+
+	/**
+	 * @param duration the duration to set
+	 */
+	public void setDuration(int duration) {
+		this.duration = duration;
+	}
+
+	/**
+	 * @return the hits
+	 */
+	public List<Integer> getHits() {
+		return hits;
+	}
+
+	/**
+	 * @param hits the hits to set
+	 */
+	public void setHits(List<Integer> hits) {
+		this.hits = hits;
+	}
+
+	/**
+	 * @return the shots
+	 */
+	public List<ShotPair> getShots() {
+		return shots;
+	}
+
+	/**
+	 * @param shotPairs the shots to set
+	 */
+	public void setShots(List<ShotPair> shotPairs) {
+		this.shots = shotPairs;
 	}
 	
 	

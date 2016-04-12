@@ -21,7 +21,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         <link href="webResource/bootstrap-3.3.5-dist/css/bootstrap.min.css" rel="stylesheet">
 
         <!-- Custom styles for this template -->
-        <link href="css/home.css" rel="stylesheet">
+        <link href="css/videoPlayer.css" rel="stylesheet">
 
 
         <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
@@ -32,15 +32,54 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     </head>
 
     <body>
-
+        <nav class="navbar navbar-inverse navbar-fixed-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="home">Video Search</a>
+                </div>
+                <div id="navbar" class="collapse navbar-collapse">
+                    <ul class="nav navbar-nav">
+                        <li class="active"><a href="home">Home</a></li>
+                    </ul>
+                </div><!--/.nav-collapse -->
+            </div>
+        </nav>
 
         <div class="container">
-            <div class="row">
+            <div class="row"></div>
+            <div class="row" style="margin-top: 7%">
                 <div class="col-sm-8 col-sm-offset-1">
-                    <video id="${video.id}" controls="controls" width="800" preload="load">
+                    <video id="video" controls="controls" width="850" preload="auto" onloadedmetadata="alert('Meta data for video loaded')">
                         <source src="<c:url value="" />${video.url}" type="video/mp4">
                         Your browser does not support HTML5 video.
                     </video>
+                </div>
+            </div>
+            <div class="row" style="display: none" id="timeBar">
+                <div class="col-sm-9 col-sm-offset-1">
+                    <div class="progress">
+                        <c:forEach var="shotPair" items="${video.shots}" varStatus="status">
+                            <c:if test="${status.count == 1}">
+                                <div class="progress-bar normal">
+                                    <span class="sr-only">0</span>
+                                </div>
+                                <div class="progress-bar shots">
+                                    <span class="sr-only">${shotPair.start}</span>
+                                </div>
+                                <div class="progress-bar normal">
+                                    <span class="sr-only">${shotPair.end}</span>
+                                </div>
+                            </c:if>
+                            <c:if test="${status.count != 1}">
+                                <div class="progress-bar shots">
+                                    <span class="sr-only">${shotPair.start}</span>
+                                </div>
+                                <div class="progress-bar normal">
+                                    <span class="sr-only">${shotPair.end}</span>
+                                </div>
+                            </c:if>
+                        </c:forEach>
+                    </div>
                 </div>
             </div>
             
@@ -61,7 +100,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                     loadTemplate:'loadTemplate',
                     migrate:'jquery-migrate',
                     bootstrap:'bootstrap.min'
-                },
+                 },
                 shim:{
                     jquery:{
                         exports:'$'
@@ -77,7 +116,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
             requirejs.onError = function (err) {
                 console.log(err);
             };
-            require(['../../js/home'], function() {
+            require(['../../js/videoPlayer'], function() {
             });
         </script>
     </body>
