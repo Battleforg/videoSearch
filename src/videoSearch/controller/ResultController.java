@@ -101,7 +101,7 @@ public class ResultController {
 		model.addAttribute("picture", picture);
 		
 		// do searching
-		List<Video> videos = doSearching("imageUrl");
+		List<Video> videos = doSearching(picture.getUrl());
 		
 		model.addAttribute("videos", videos);
 		return "displayResults";
@@ -114,7 +114,7 @@ public class ResultController {
 		model.addAttribute("picture", picture);
 		
 		// do searching
-		List<Video> videos = doSearching("imageUrl");
+		List<Video> videos = doSearching(picture.getUrl());
 		
 		model.addAttribute("videos", videos);
 		return "displayResults";
