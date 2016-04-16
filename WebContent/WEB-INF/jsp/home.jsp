@@ -50,12 +50,16 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
             <div class="row">
                 <div class="col-sm-12">
                     <div class="title">
-                        <h1>教育视频检索系统</h1>
-                        <p class="lead">一个快速的基于内容的视频检索工具</p>
+                        <h1>教育视频资源检索系统</h1>
+                        <div class="row">
+                            <div class="col-sm-6 col-sm-offset-3">
+                                <img src="image/logo.jpg" alt="logo">
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
-            <div class="row" id="btnArea">
+            <div class="row" id="btnArea" style="margin-top: 8%">
                 <div class="col-sm-8 col-sm-offset-3">
                     <form>
                         <div class="row">
@@ -75,7 +79,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                 </div>
             </div>
             <div id="uploadImg" class="row" style="display: none;">
-                <div class="col-sm-5 col-sm-offset-4">
+                <div class="col-sm-5 col-sm-offset-3">
                     <form:form commandName="uploadPicture" action="pictureSave" method="post" enctype="multipart/form-data">
                         <div class="for-group">
                             <label for="uploadFile">upload image</label>
@@ -98,10 +102,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                         </c:forEach>
                     </div>
                 </div>
-            </div>
-            <hr class="divider">
-            <div class="footer">
-                <p class="text-center"><a href="http://lycgaming.blog.163.com/">@2016 Battlefrog</a>-------友情链接：<a href="http://glyphicons.com/">Glyphicons字体图标</a></p>
             </div>
         </div>
     

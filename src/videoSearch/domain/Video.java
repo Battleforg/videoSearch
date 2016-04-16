@@ -14,7 +14,7 @@ public class Video implements Serializable {
 	private String thumbnailUrl;
 	private Long id;
 	private int duration;
-	private List<Integer> hits;
+	private List<String> hits;
 	private List<ShotPair> shots;
 
 	/**
@@ -90,14 +90,14 @@ public class Video implements Serializable {
 	/**
 	 * @return the hits
 	 */
-	public List<Integer> getHits() {
+	public List<String> getHits() {
 		return hits;
 	}
 
 	/**
 	 * @param hits the hits to set
 	 */
-	public void setHits(List<Integer> hits) {
+	public void setHits(List<String> hits) {
 		this.hits = hits;
 	}
 

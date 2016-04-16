@@ -48,44 +48,26 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         <div class="container">
             <div class="row"></div>
             <div class="row" style="margin-top: 7%">
-                <div class="col-sm-8 col-sm-offset-1">
-                    <video id="video" controls="controls" width="850" preload="auto" onloadedmetadata="alert('Meta data for video loaded')">
+                <div class="col-sm-8">
+                    <video id="video" controls="controls" width="700" preload="auto">
                         <source src="<c:url value="" />${video.url}" type="video/mp4">
                         Your browser does not support HTML5 video.
                     </video>
                 </div>
             </div>
-            <div class="row" style="display: none" id="timeBar">
+            <div class="row">
                 <div class="col-sm-9 col-sm-offset-1">
-                    <div class="progress">
-                        <c:forEach var="shotPair" items="${video.shots}" varStatus="status">
-                            <c:if test="${status.count == 1}">
-                                <div class="progress-bar normal">
-                                    <span class="sr-only">0</span>
-                                </div>
-                                <div class="progress-bar shots">
-                                    <span class="sr-only">${shotPair.start}</span>
-                                </div>
-                                <div class="progress-bar normal">
-                                    <span class="sr-only">${shotPair.end}</span>
-                                </div>
-                            </c:if>
-                            <c:if test="${status.count != 1}">
-                                <div class="progress-bar shots">
-                                    <span class="sr-only">${shotPair.start}</span>
-                                </div>
-                                <div class="progress-bar normal">
-                                    <span class="sr-only">${shotPair.end}</span>
-                                </div>
-                            </c:if>
-                        </c:forEach>
-                    </div>
+                    <p>匹配情况：</p>
+                    <ol>
+                    <c:forEach var="shotPair" items="${video.shots}" varStatus="status">       
+                        <li>
+                            <p>
+                                <span>关键帧:${shotPair.hit},</span><span>所在镜头:</span><span>${shotPair.start}</span><span>至${shotPair.end}</span>
+                            </p>
+                        </li>
+                    </c:forEach>    
+                    </ol>
                 </div>
-            </div>
-            
-            <hr class="divider">
-            <div class="footer">
-                <p class="text-center"><a href="http://lycgaming.blog.163.com/">@2016 Battlefrog</a>-------友情链接：<a href="http://glyphicons.com/">Glyphicons字体图标</a></p>
             </div>
         </div>
     

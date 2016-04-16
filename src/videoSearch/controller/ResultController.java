@@ -69,21 +69,30 @@ public class ResultController {
 			aVideo.setDuration(aDuration);
 			
 			List<Integer> hitLists = (List<Integer>) video.get("hits");
-
+			List<String> hits = new ArrayList<String>();
+			for (Integer integer : hitLists) {
+				String hitString = formatTime(integer);
+				hits.add(hitString);
+			}
 			
 			List<Integer> shotLists = (List<Integer>) video.get("shots");
 			List<ShotPair> shotPairs = new ArrayList<ShotPair>();
 			for (int i = 0; i < shotLists.size() - 1; i += 2) {
-				int start = shotLists.get(i).intValue();
-				int end = shotLists.get(i + 1).intValue();
+				String start = formatTime(shotLists.get(i));
+				String end = formatTime(shotLists.get(i + 1));
 				ShotPair shotPair = new ShotPair();
 				shotPair.setStart(start);
 				shotPair.setEnd(end);
 				shotPairs.add(shotPair);
 			}
 			
+			for (int i = 0; i < shotPairs.size(); i++) {
+				ShotPair shotPair = shotPairs.get(i);
+				String aHit = hits.get(i);
+				shotPair.setHit(aHit);
+				shotPairs.set(i, shotPair);
+			}
 			
-			aVideo.setHits(hitLists);
 			aVideo.setShots(shotPairs);
 			
 			
@@ -92,6 +101,22 @@ public class ResultController {
 		}
 	
 		return resultsList;
+	}
+
+	/**
+	 * @param integer(second)
+	 * @return String(minute:second)
+	 */
+	private String formatTime(Integer integer) {
+		int m = integer.intValue() / 60;
+		int s = integer.intValue() % 60;
+		String hitString;
+		if (s < 10) {
+			hitString = m + ":0" + s;
+		} else {
+			hitString = m + ":" + s;
+		}
+		return hitString;
 	}
 	
 	@RequestMapping(value = "/sampleImgResults/{id}")

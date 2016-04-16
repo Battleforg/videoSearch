@@ -64,6 +64,7 @@ public class PictureController {
 				imageFile.transferTo(imageToSave);
 			} catch (Exception e) {
 				e.printStackTrace();
+				return "redirect:/home";
 			}
 			
 			// save image in pictureService

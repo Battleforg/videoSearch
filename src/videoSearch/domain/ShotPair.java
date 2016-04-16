@@ -8,30 +8,43 @@ public class ShotPair implements Serializable{
 	 * 
 	 */
 	private static final long serialVersionUID = -4119113407964768089L;
-	private int start;
-	private int end;
+	private String start;
+	private String end;
+	private String hit;
 	/**
 	 * @return the start
 	 */
-	public int getStart() {
+	public String getStart() {
 		return start;
 	}
 	/**
 	 * @param start the start to set
 	 */
-	public void setStart(int start) {
+	public void setStart(String start) {
 		this.start = start;
 	}
 	/**
 	 * @return the end
 	 */
-	public int getEnd() {
+	public String getEnd() {
 		return end;
 	}
 	/**
 	 * @param end the end to set
 	 */
-	public void setEnd(int end) {
+	public void setEnd(String end) {
 		this.end = end;
+	}
+	/**
+	 * @return the hit
+	 */
+	public String getHit() {
+		return hit;
+	}
+	/**
+	 * @param hit the hit to set
+	 */
+	public void setHit(String hit) {
+		this.hit = hit;
 	}
 }

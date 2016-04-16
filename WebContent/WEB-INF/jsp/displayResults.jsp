@@ -47,8 +47,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
         <div class="container">
             <div class="row" style="padding-left: 6%;padding-top: 8%;padding-bottom: 5%;">
-                <div class="col-sm-12">
-                    <img width="100" src="<c:url value="" />${picture.url}" alt="results">
+                <div class="col-sm-2">
+                    <img width="100%" src="<c:url value="" />${picture.url}" alt="results">
                 </div>
             </div>
             <div class="row">
@@ -56,18 +56,65 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                     <div class="row" id="resultVideoArea">
                         <c:forEach items="${videos}" var="video">
                             <div class="col-sm-4 videoPicture">
-                                <a href="videoPlayer/${video.name}" class="thumbnail">
-                                    <img width="100" src="<c:url value="" />${video.thumbnailUrl}" alt="results">
-                                </a>
+                                <div class="thumbnail">
+                                    <img width="100%" src="<c:url value="" />${video.thumbnailUrl}" alt="results">
+                                    <p class="text-center">${video.name}</p>
+                                    <div class="caption">
+                                        <h3>匹配情况：</h3>
+                                        <ol>
+                                        <c:forEach var="shotPair" items="${video.shots}" varStatus="status">
+                                            <li>
+                                                <p class="shotPairs">
+                                                    <span>关键帧:${shotPair.hit},</span><span>所在镜头:</span><span>${shotPair.start}</span><span>至${shotPair.end}</span>
+                                                </p>
+                                                
+                                            </li>
+                                        </c:forEach>    
+                                        </ol>
+                                        <p class="videoUrl" style="display: none;">${video.url}</p>
+                                        <button type="button" class="btn btn-primary showVideoBtn" data-toggle="modal" data-target="#myModal">查看视频</button>
+                                    </div>
+                                </div>
                             </div>
                         </c:forEach>
                     </div>
+                    <!-- 模态框begin -->
+                    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelleby="myModalLabel">
+                        <div class="modal-dialog modal-lg" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button id="closeIcon" type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                    <h4 class="modal-title" id="myModalLabel">播放视频</h4>
+                                    <div class="modal-body">
+                                        <div class="container-fluid">
+                                            <div class="row" style="margin-top: 7%">
+                                                <div class="col-sm-8">
+                                                    <video id="video" controls="controls" width="700" preload="auto">
+                                                        <source src="video/test3.mp4" type="video/mp4">
+                                                        Your browser does not support HTML5 video.
+                                                    </video>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-sm-9 col-sm-offset-1">
+                                                    <p>匹配情况：</p>
+                                                    <ol id="shotsDetailArea"> 
+                                                    </ol>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button id="closeBtn" type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- 模态框end -->
                 </div>
-            </div>
-            
-            <hr class="divider">
-            <div class="footer">
-                <p class="text-center"><a href="http://lycgaming.blog.163.com/">@2016 Battlefrog</a>-------友情链接：<a href="http://glyphicons.com/">Glyphicons字体图标</a></p>
             </div>
         </div>
     
@@ -100,6 +147,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
             };
             require(['../../js/displayResults'], function() {
             });
+        </script>
+        <script id="shotAndHitTemplate" type="text/html">
+            <li>
+                <p>
+                    <span data-content="shotsAndHit"></span>
+                </p>
+            </li>
         </script>
     </body>
 </html>
