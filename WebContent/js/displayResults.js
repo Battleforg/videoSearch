@@ -14,11 +14,12 @@ define(function(require, exports, modules) {
     };
 
     var showVideo = function(obj) {
-    	var videoUrl = $(obj).prev('.videoUrl').text();
+    	var videoUrl = $(obj).parent().prev('.videoUrl').text();
     	$('video#video').find('source').attr('src', videoUrl);
+    	document.getElementById('video').load();
 
 
-    	var shotPairs = $(obj).parent().find('p.shotPairs');
+    	var shotPairs = $(obj).parent().parent().find('p.shotPairs');
     	for (var i = 0; i < shotPairs.length; i++) {
 
     		var shotsData = {

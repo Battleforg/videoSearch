@@ -72,7 +72,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                                         </c:forEach>    
                                         </ol>
                                         <p class="videoUrl" style="display: none;">${video.url}</p>
-                                        <button type="button" class="btn btn-primary showVideoBtn" data-toggle="modal" data-target="#myModal">查看视频</button>
+                                        <p>
+                                            <button type="button" class="btn btn-default showVideoBtn" data-toggle="modal" data-target="#myModal">查看视频</button>
+                                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                            <button type="button" class="btn btn-primary download">下载</button>
+                                        </p>
                                     </div>
                                 </div>
                             </div>
@@ -92,7 +98,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                                             <div class="row" style="margin-top: 7%">
                                                 <div class="col-sm-8">
                                                     <video id="video" controls="controls" width="700" preload="auto">
-                                                        <source src="video/test3.mp4" type="video/mp4">
+                                                        <source src="" type="video/mp4">
                                                         Your browser does not support HTML5 video.
                                                     </video>
                                                 </div>
@@ -108,6 +114,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                                     </div>
                                     <div class="modal-footer">
                                         <button id="closeBtn" type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                                        <button type="button" class="btn btn-primary download">下载</button>
                                     </div>
                                 </div>
                             </div>

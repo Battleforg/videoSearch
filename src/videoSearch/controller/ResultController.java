@@ -44,20 +44,75 @@ public class ResultController {
 		// call search
 		List<Map<String, Object>> testSearch = new ArrayList<Map<String, Object>>();
 		Map<String, Object> video1 = new HashMap<String, Object>();
-		video1.put("name", "testVideo1");
-		video1.put("path", "video/test3.mp4");
-		video1.put("thumbnail", "image/sample.jpg");
-		Integer duration = 1320;
+		video1.put("name", "CBS news 2012.10.8");
+		video1.put("path", "data/videos/20121008_CBS_News_20121008_1200_cc_segment_12.700k.mp4");
+		video1.put("thumbnail", "data/thumbnails/20121008_CBS_News_20121008_1200_cc_segment_12.700k.mp4/thumbnail.jpg");
+		Integer duration = 66;
 		video1.put("duration", duration);
 		List<Integer> hitPostions = new ArrayList<Integer>();
-		hitPostions.add(50);
-		hitPostions.add(250);
+		hitPostions.add(64);
 		video1.put("hits", hitPostions);
 		List<Integer> shots = new ArrayList<Integer>();
-		shots.add(50);shots.add(100);
-		shots.add(200);shots.add(300);
+		shots.add(56);shots.add(66);
 		video1.put("shots", shots);	
 		testSearch.add(video1);
+		
+		Map<String, Object> video2 = new HashMap<String, Object>();
+		video2.put("name", "CNN news 2012.10.8");
+		video2.put("path", "data/videos/20121008_CNN_20121008_1200_cc_segment_20.700k.mp4");
+		video2.put("thumbnail", "data/thumbnails/20121008_CNN_20121008_1200_cc_segment_20.700k.mp4/thumbnail.jpg");
+		duration = 630;
+		video2.put("duration", duration);
+		hitPostions = new ArrayList<Integer>();
+		hitPostions.add(220);
+		video2.put("hits", hitPostions);
+		shots = new ArrayList<Integer>();
+		shots.add(211);shots.add(229);
+		video2.put("shots", shots);	
+		testSearch.add(video2);
+		
+		Map<String, Object> video3 = new HashMap<String, Object>();
+		video3.put("name", "NBC news 2012.10.8");
+		video3.put("path", "data/videos/20121008_NBC_Nightly_News_20121008_1730_cc_segment_07.700k.mp4");
+		video3.put("thumbnail", "data/thumbnails/20121008_NBC_Nightly_News_20121008_1730_cc_segment_07.700k.mp4/thumbnail.jpg");
+		duration = 89;
+		video3.put("duration", duration);
+		hitPostions = new ArrayList<Integer>();
+		hitPostions.add(11);
+		video3.put("hits", hitPostions);
+		shots = new ArrayList<Integer>();
+		shots.add(4);shots.add(13);
+		video3.put("shots", shots);	
+		testSearch.add(video3);
+		
+		Map<String, Object> video4 = new HashMap<String, Object>();
+		video4.put("name", "CNET 2012.12.11");
+		video4.put("path", "data/videos/20121211_CNET_20121211_1200_cc_segment_09.700k.mp4");
+		video4.put("thumbnail", "data/thumbnails/20121211_CNET_20121211_1200_cc_segment_09.700k.mp4/thumbnail.jpg");
+		duration = 260;
+		video4.put("duration", duration);
+		hitPostions = new ArrayList<Integer>();
+		hitPostions.add(22);
+		video4.put("hits", hitPostions);
+		shots = new ArrayList<Integer>();
+		shots.add(17);shots.add(22);
+		video4.put("shots", shots);	
+		testSearch.add(video4);
+		
+		Map<String, Object> video5 = new HashMap<String, Object>();
+		video5.put("name", "Today Show 2013.1.12");
+		video5.put("path", "data/videos/20130112_Today_Show_20130112_0500_cc_segment_08.700k.mp4");
+		video5.put("thumbnail", "data/thumbnails/20130112_Today_Show_20130112_0500_cc_segment_08.700k.mp4/thumbnail.jpg");
+		duration = 132;
+		video5.put("duration", duration);
+		hitPostions = new ArrayList<Integer>();
+		hitPostions.add(112);
+		video5.put("hits", hitPostions);
+		shots = new ArrayList<Integer>();
+		shots.add(109);shots.add(113);
+		video5.put("shots", shots);	
+		testSearch.add(video5);
+		
 		
 		for (Map<String, Object> video : testSearch) {
 			Video aVideo = new Video();

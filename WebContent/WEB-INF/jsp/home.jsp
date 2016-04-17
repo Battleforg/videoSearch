@@ -59,18 +59,18 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                     </div>
                 </div>
             </div>
-            <div class="row" id="btnArea" style="margin-top: 8%">
+            <div class="row" id="btnArea" style="">
                 <div class="col-sm-8 col-sm-offset-3">
                     <form>
                         <div class="row">
                             <div class="col-sm-6">
-                                <button id="openUpload" type="button" class="btn btn-default">
+                                <button id="openUpload" type="button" class="btn btn-info">
                                     Search by upload
                                 </button>
                                 
                             </div>
                             <div class="col-sm-4">
-                                <button id="sampleBtn" type="button" class="btn btn-default">
+                                <button id="sampleBtn" type="button" class="btn btn-info">
                                     Search by sample
                                 </button>
                             </div>
