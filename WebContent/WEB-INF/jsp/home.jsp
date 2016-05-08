@@ -93,17 +93,15 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                 </div>
             </div>
             <div id="useSamepleImg" class="row" style="display: none;">
-                <div class="col-sm-9 col-sm-offset-2">
-                    <div class="container-fluid">
-                        <div class="row" id="samplePictureArea">
-                            <c:forEach items="${pictures}" var="picture">
-                                <div class="col-sm-3 samplePicture" id="${picture.id}">
-                                    <a href="sampleImgResults/${picture.name}" class="thumbnail">
-                                        <img src="<c:url value="" />${picture.url}" alt="sample">
-                                    </a>
-                                </div>
-                            </c:forEach>
-                        </div>
+                <div class="col-sm-12">
+                    <div class="row" id="samplePictureArea">
+                        <c:forEach items="${pictures}" var="picture">
+                            <div class="col-sm-4 samplePicture" id="${picture.id}">
+                                <a href="sampleImgResults/${picture.name}" class="thumbnail">
+                                    <img src="<c:url value="" />${picture.url}" alt="sample">
+                                </a>
+                            </div>
+                        </c:forEach>
                     </div>
                 </div>
             </div>
